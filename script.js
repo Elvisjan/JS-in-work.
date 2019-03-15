@@ -29,8 +29,11 @@ function chooseExpenses() {
   }
 }
 chooseExpenses();
-appData.moneyPerDay = (appData.budget / 30).toFixed(1);
-alert('Ежедневный бюджет: ' + appData.moneyPerDay);
+function declineMoneyPerDay() {
+  appData.moneyPerDay = (appData.budget / 30).toFixed(1);
+  alert('Ежедневный бюджет: ' + appData.moneyPerDay);
+}
+declineMoneyPerDay();
 if(appData.moneyPerDay < 100) {
   console.log('Минимальный уровень достатка');
 } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
