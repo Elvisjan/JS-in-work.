@@ -46,6 +46,13 @@ if(appData.moneyPerDay < 100) {
   console.log('Произошла ошибка')};
 };
 detectLevel();
+function chooseOptExpenses() {
+  for (let i = 0; i < 2; i++) {
+    let state = +prompt('Статья необязательных расходов?','');
+    appData.optionalExpences[i+1] = state;        
+  }
+}
+chooseOptExpenses();
 function checkSavings() {
   if (appData.savings == true) {
     let save = +prompt('Какова сумма накоплений?'),
