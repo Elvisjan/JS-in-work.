@@ -1,4 +1,25 @@
 let money, time;
+let paymentButton = document.getElementById('start');
+let budgetValue = document.querySelector('.budget-value');
+let daybudgetValue = document.querySelector('.daybudget-value');
+let levelValue = document.querySelector('.level-value');
+let expensesValue = document.querySelector('.expenses-value');
+let optionalExpencesValue = document.querySelector('.optionalexpences-value');
+let incomeValue = document.querySelector('.income-value');
+let monthSavingsValue = document.querySelector('.monthsavings-value');
+let yearSavingsValue = document.querySelector('.yearsavings-value');
+let yearValue = document.querySelector('.year-value');
+let monthValue = document.querySelector('.month-value');
+let dailyValue = document.querySelector('.daily-value');
+let expensesChooseable = document.querySelector('.expenses-item');
+let expensesButton = document.querySelector('.expenses-item-btn');
+let optExpensesButton = document.querySelector('.optionalexpenses-btn');
+let calculate = document.querySelector('.count-budget-btn');
+let optionalExpencesItems = document.querySelectorAll('.optionalexpenses-item');
+let incomeInput = document.querySelector('.choose-income');
+let sumInput = document.querySelector('.choose-sum');
+let percentInput = document.querySelector('.choose-percent');
+let savingsCheckbox = document.getElementById('savings');
 
 function start() {
   money = +prompt('Ваш бюджет на месяц?', '');
