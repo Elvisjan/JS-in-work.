@@ -31,21 +31,21 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   });
   // Timer
-  let deadline = '2019-03-20';
+  let deadline = '3019-03-20';
 
   function getTimeRemaining(endtime) {
     let t = Date.parse(endtime) - Date.parse(new Date()),
       seconds = Math.floor((t / 1000) % 60),
       minutes = Math.floor((t / 1000 / 60) % 60),
-      hours = Math.floor((t / 1000 / 60 / 60) % 24 - 4),
-      days = Math.floor((t/(1000 * 60 * 60 * 24)));
-  
-    return  {
+      hours = Math.floor((t / 1000 / 60 / 60) % 24 - 5),
+      days = Math.floor((t / (1000 * 60 * 60 * 24)));
+
+    return {
       'total': t,
       'seconds': seconds,
       'minutes': minutes,
       'hours': hours,
-      'days' : days
+      'days': days
     };
   };
 
@@ -54,33 +54,56 @@ window.addEventListener('DOMContentLoaded', function () {
       hours = timer.querySelector('.hours'),
       minutes = timer.querySelector('.minutes'),
       seconds = timer.querySelector('.seconds');
-      days = timer.querySelector('.days')
-      timeInterval = setInterval(updateClock, 1000);
+    days = timer.querySelector('.days')
+    timeInterval = setInterval(updateClock, 1000);
 
-    function updateClock() {      
+    function updateClock() {
       let t = getTimeRemaining(endtime);
-      hours.textContent = t.hours;      
+      hours.textContent = t.hours;
       minutes.textContent = t.minutes;
-      seconds.textContent = t.seconds;      
+      seconds.textContent = t.seconds;
       days.textContent = t.days;
-      if(seconds.textContent.length < 2) {
+      if (seconds.textContent.length < 2) {
         seconds.textContent = '0' + t.seconds
       };
-      if(minutes.textContent.length < 2) {
+      if (minutes.textContent.length < 2) {
         minutes.textContent = '0' + t.minutes
       };
-      if(hours.textContent.length < 2) {
+      if (hours.textContent.length < 2) {
         hours.textContent = '0' + t.hours
       };
-      if(days.textContent.length < 2) {
+      if (days.textContent.length < 2) {
         days.textContent = '0' + t.days
       };
-      if (t.total <=0) {
+      if (t.total <= 0) {
         clearInterval(timeInterval);
       }
     }
 
+
+  }
+  setClock('timer', deadline);
+  //Modal
+  let more = document.querySelector('.more'),
+    descriptionBtn = document.querySelectorAll('.description-btn'),
+    overlay = document.querySelector('.overlay'),
+    close = document.querySelector('.popup-close');
+  more.addEventListener('click', function () {
+    overlay.style.display = 'block';
+    this.classList.add('more-splash');
+    document.body.style.overflow = 'hidden';
+  });
+  close.addEventListener('click', function () {
+    overlay.style.display = 'none';
+    more.classList.remove('more-splash');
+    document.body.style.overflow = '';
+  });
+  for(i = 0; i < descriptionBtn.length; i++) {
+    descriptionBtn[i].addEventListener('click', function () {
+    overlay.style.display = 'block';
+    this.classList.add('more-splash');
+    document.body.style.overflow = 'hidden'
+  });
+  };
   
-}
-setClock('timer', deadline);
 });
