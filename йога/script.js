@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', function () {
-  'use stict';
+  'use strict';
   let tabContent = document.querySelectorAll('.info-tabcontent'),
     tab = document.querySelectorAll('.info-header-tab'),
     header = document.querySelector('.info-header');
@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', function () {
   header.addEventListener('click', function (event) {
     let target = event.target;
     if (target && target.classList.contains('info-header-tab')) {
-      for (i = 0; i < tab.length; i++) {
+      for (let i = 0; i < tab.length; i++) {
         if (target == tab[i]) {
           hideTabContent(0);
           showTabContent(i);
@@ -53,8 +53,8 @@ window.addEventListener('DOMContentLoaded', function () {
     let timer = document.getElementById(id),
       hours = timer.querySelector('.hours'),
       minutes = timer.querySelector('.minutes'),
-      seconds = timer.querySelector('.seconds');
-    days = timer.querySelector('.days')
+      seconds = timer.querySelector('.seconds'),
+      days = timer.querySelector('.days'),
     timeInterval = setInterval(updateClock, 1000);
 
     function updateClock() {
@@ -98,12 +98,11 @@ window.addEventListener('DOMContentLoaded', function () {
     more.classList.remove('more-splash');
     document.body.style.overflow = '';
   });
-  for(i = 0; i < descriptionBtn.length; i++) {
+  for (let i = 0; i < descriptionBtn.length; i++) {
     descriptionBtn[i].addEventListener('click', function () {
-    overlay.style.display = 'block';
-    this.classList.add('more-splash');
-    document.body.style.overflow = 'hidden'
-  });
+      overlay.style.display = 'block';
+      this.classList.add('more-splash');
+      document.body.style.overflow = 'hidden'
+    });
   };
-  
 });
